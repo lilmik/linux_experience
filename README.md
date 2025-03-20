@@ -72,3 +72,18 @@ gedit  ~/.config/Kingsoft/Office.conf
 languages=zh_CN
 PersistentStatus=0
 ```
+
+### conda python环境报错
+
+conda中提示libGL相关的问题
+
+```bash
+libGL error: MESA-LOADER: failed to open swrast: /usr/lib/dri/swrast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+libGL error: failed to load driver: swrast
+```
+
+需要在conda对应的环境中安装补充包
+
+```xml
+conda install -c conda-forge libstdcxx-ng
+```
