@@ -143,3 +143,24 @@ export QT_SCALE_FACTOR_ROUNDING_POLICY=PassThrough  # 避免四舍五入导致�
 source ~/.bashrc
 ```
 
+### linux qt程序适应高分屏,指定缩放比例
+```c++
+#include <QApplication>
+#include <QWidget>
+
+int main(int argc, char *argv[])
+{
+    // 设置高 DPI 缩放策略
+    QApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+
+    // 设置缩放因子
+    qputenv("QT_SCALE_FACTOR", "1.5");
+
+    QApplication a(argc, argv);
+    QWidget w;
+    w.show();
+    return a.exec();
+}    
+```
