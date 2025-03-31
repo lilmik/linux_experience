@@ -90,9 +90,7 @@ conda install -c conda-forge libstdcxx-ng
 
 
 ### wsl强制使用n卡来驱动gazebo
-
 其他需要显卡的加速的功能同样适用，测试使用的MX150显卡，OK
-
 ```bash
 export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA
 ```
@@ -102,6 +100,32 @@ nano ~/.bashrc
 
 export LIBGL_ALWAYS_INDIRECT=0
 export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA
+
+source ~/.bashrc
+```
+
+### wsl强制调整GUI应用的dpi
+先安装下面软件包
+```bash
+sudo apt install x11-xserver-utils
+```
+创建并编辑 ~/.Xresources 文件：
+```bash
+nano ~/.Xresources
+```
+添加以下内容来设置默认 DPI（字体大小），例如将 DPI 设置为 192：
+```bash
+Xft.dpi: 192
+```
+加载 ~/.Xresources 文件：
+```bash
+xrdb -merge ~/.Xresources
+```
+编辑 ~/.bashrc 
+```bash
+nano ~/.bashrc
+
+xrdb -merge ~/.Xresources
 
 source ~/.bashrc
 ```
