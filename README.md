@@ -84,6 +84,24 @@ libGL error: failed to load driver: swrast
 
 需要在conda对应的环境中安装补充包
 
-```xml
+```bash
 conda install -c conda-forge libstdcxx-ng
+```
+
+
+### wsl强制使用n卡来驱动gazebo
+
+其他需要显卡的加速的功能同样适用，测试使用的MX150显卡，OK
+
+```bash
+export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA
+```
+可以添加到.bashrc文件中，自动生效
+```bash
+nano ~/.bashrc
+
+export LIBGL_ALWAYS_INDIRECT=0
+export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA
+
+source ~/.bashrc
 ```
