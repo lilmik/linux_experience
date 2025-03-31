@@ -129,3 +129,17 @@ xrdb -merge ~/.Xresources
 
 source ~/.bashrc
 ```
+
+### wsl强制优化调整QtCreator应用,执行路径|dpi
+编辑 ~/.bashrc 
+```bash
+nano ~/.bashrc
+
+# qtcreator
+export PATH=$PATH:~/Qt/Tools/QtCreator/bin
+export QT_SCALE_FACTOR=1.75  # 尝试 1.25、1.5 等值
+export QT_SCALE_FACTOR_ROUNDING_POLICY=PassThrough  # 避免四舍五入导致的比例偏差
+
+source ~/.bashrc
+```
+
